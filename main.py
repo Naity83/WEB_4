@@ -15,6 +15,13 @@ HTTP_HOST = '0.0.0.0'  # Установка HTTP_HOST для хоста HTTP-с�
 SOCKET_HOST = '127.0.0.1'  # Установка SOCKET_HOST для хоста сокет-сервера
 SOCKET_PORT = 5000  # Установка SOCKET_PORT для порта сокет-сервера
 DATA_JSON = 'storage/data.json'
+JSON_FILE = Path("storage/data.json")
+
+
+if not JSON_FILE.is_file():
+    data = {}
+    with open(JSON_FILE, "w") as file:
+        json.dump(data, file)
 
 class GoitFramework(BaseHTTPRequestHandler):
 
